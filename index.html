@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeCoding Prompt Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./globals.css">
+  <script>
+    tailwind.config = {
+      darkMode: ["class"],
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: {
+              DEFAULT: 'hsl(var(--primary))',
+              foreground: 'hsl(var(--primary-foreground))'
+            },
+            secondary: {
+              DEFAULT: 'hsl(var(--secondary))',
+              foreground: 'hsl(var(--secondary-foreground))'
+            },
+            muted: {
+              DEFAULT: 'hsl(var(--muted))',
+              foreground: 'hsl(var(--muted-foreground))'
+            },
+            accent: {
+              DEFAULT: 'hsl(var(--accent))',
+              foreground: 'hsl(var(--accent-foreground))'
+            },
+            destructive: {
+              DEFAULT: 'hsl(var(--destructive))',
+              foreground: 'hsl(var(--destructive-foreground))'
+            },
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            card: {
+              DEFAULT: 'hsl(var(--card))',
+              foreground: 'hsl(var(--card-foreground))'
+            },
+            popover: {
+              DEFAULT: 'hsl(var(--popover))',
+              foreground: 'hsl(var(--popover-foreground))'
+            }
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto p-8">
+    <h1 class="text-6xl font-bold mb-4 text-foreground leading-tight">Generate prompts, <br>don't write</h1>
+    <p class="text-xl text-muted-foreground mb-8 max-w-2xl">Fill in details to generate standardized prompt for any vibecoding platform.</p>
+    
+    <!-- Tabs -->
+    <div class="flex gap-2 mb-8 border-b border-border">
+      <button id="newAppTab" class="px-6 py-3 font-semibold text-sm transition-colors border-b-2 border-transparent text-muted-foreground hover:text-foreground data-[active=true]:border-foreground data-[active=true]:text-foreground">
+        New
+      </button>
+      <button id="existingAppTab" class="px-6 py-3 font-semibold text-sm transition-colors border-b-2 border-transparent text-muted-foreground hover:text-foreground data-[active=true]:border-foreground data-[active=true]:text-foreground">
+        Existing
+      </button>
+    </div>
+    
+    <!-- New App Form -->
+    <form id="newAppForm" class="tab-content space-y-6 bg-card text-card-foreground p-8 rounded-lg border border-border shadow-sm">
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Project Title</label>
+        <input type="text" id="title" required 
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground placeholder:text-muted-foreground"
+          placeholder="Company Market Cap Graph">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Description (one sentence)</label>
+        <input type="text" id="description" required
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground placeholder:text-muted-foreground"
+          placeholder="Interactive dependency graph showing company market caps">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Platform</label>
+        <select id="platform" required
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground">
+          <option value="">Select platform...</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Additional instructions (optional)</label>
+        <textarea id="instructions" rows="4"
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground placeholder:text-muted-foreground"
+          placeholder="- Use react-force-graph for visualization&#10;- Integrate Alpha Vantage API&#10;- Add search/filter functionality"></textarea>
+      </div>
+
+      <button type="submit" 
+        class="w-full bg-primary text-primary-foreground py-4 rounded-md font-semibold hover:bg-primary/90 transition-colors active:scale-[0.98]">
+        Generate prompt
+      </button>
+    </form>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->        
+    <!-- Existing app form -->
+    <form id="existingAppForm" class="tab-content hidden space-y-6 bg-card text-card-foreground p-8 rounded-lg border border-border shadow-sm">
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Project title</label>
+        <input type="text" id="existingTitle" required 
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground placeholder:text-muted-foreground"
+          placeholder="Company Market Cap Graph">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Description (one sentence)</label>
+        <input type="text" id="existingDescription" required
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground placeholder:text-muted-foreground"
+          placeholder="Interactive dependency graph showing company market caps">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Platform</label>
+        <select id="existingPlatform" required
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground">
+          <option value="">Select platform...</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2 text-foreground">Additional Instructions (optional)</label>
+        <textarea id="existingInstructions" rows="4"
+          class="w-full px-4 py-3 bg-background border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-transparent text-foreground placeholder:text-muted-foreground">
+          placeholder="- Use react-force-graph for visualization&#10;- Integrate Alpha Vantage API&#10;- Add search/filter functionality"></textarea>
+      </div>
+
+      <button type="submit" 
+        class="w-full bg-primary text-primary-foreground py-4 rounded-md font-semibold hover:bg-primary/90 transition-colors active:scale-[0.98]">
+        Generate prompt
+      </button>
+    </form>
+
+    <div id="output" class="hidden mt-12">
+      <div class="bg-card text-card-foreground p-8 rounded-lg border border-border shadow-sm">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold text-foreground">Generated prompt</h2>
+          <button id="copyBtn" 
+            class="bg-primary text-primary-foreground px-6 py-3 rounded-md hover:bg-primary/90 transition-colors active:scale-[0.98] font-semibold">
+            Copy
+          </button>
+        </div>
+        <pre id="promptOutput" class="bg-muted p-6 rounded-md overflow-x-auto text-sm text-foreground border border-border"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
